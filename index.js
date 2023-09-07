@@ -20,7 +20,7 @@ let persons = [
   },
   {
     id: 4,
-    name: "Marrri Mikkonen",
+    name: "MIKKO mIES",
     number: "040048329589"
   }
 ]
