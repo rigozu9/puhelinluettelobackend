@@ -1,6 +1,11 @@
 const express = require('express')
 const app = express()
 
+const morgan = require('morgan')
+
+const cors = require('cors')
+app.use(cors())
+
 app.use(express.json())
 
 let persons = [
@@ -25,6 +30,9 @@ let persons = [
     number: "13453295843958943"
   }
 ]
+
+app.use(morgan('tiny'))
+
 app.get('/', (req, res) => {
   res.send('<h1>Hello World!</h1>')
 })
@@ -64,6 +72,7 @@ const generateId = () => {
 
 app.post('/api/persons', (req, res) => {
   const body = req.body
+  console.log(req.body)
 
   if (!body.name) {
     return res.status(400).json({ 
